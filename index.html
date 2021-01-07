@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #da3e7a;">
+	<head>
+				<meta charset="utf-8" />
+				<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+				<title>Bollor Tracking System</title>
+
+				<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+				<meta name="viewport" content="width=device-width" />
+
+				 <!-- Bootstrap core CSS     -->
+				<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+				<!--  Paper Dashboard core CSS    -->
+				<link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+				<!--  Fonts and icons     -->
+				<link href="assets/css/font-awesome.css" rel="stylesheet">
+				<link href='assets/css/MuliFontCSS.css' rel='stylesheet' type='text/css'>
+				<link href="assets/css/themify-icons.css" rel="stylesheet">
+
+				<!--   Core JS Files   -->
+				<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+				<script src="assets/js/jquery-ui.min.js" type="text/javascript"></script>
+				<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+				<!--  Forms Validations Plugin -->
+				<script src="assets/js/jquery.validate.min.js"></script>
+				<script src="assets/js/jquery.min.js"></script>
+
+				<!--  Select Picker Plugin -->
+				<script src="assets/js/bootstrap-selectpicker.js"></script>
+
+				<!--  Checkbox, Radio, Switch and Tags Input Plugins -->
+				<script src="assets/js/bootstrap-checkbox-radio-switch-tags.js"></script>
+
+				<!--  Notifications Plugin    -->
+				<script src="assets/js/bootstrap-notify.js"></script>
+
+				<!-- Sweet Alert 2 plugin -->
+				<script src="assets/js/sweetalert2.js"></script>
+
+				<!--  Datatable Plugin    -->
+				<script src="assets/js/bootstrap-table.js"></script>
+
+				<!-- ## Custom Style ## -->
+				<style>
+				.hide {
+					display: none;
+				}
+
+				.bg-card{
+				background: url("assets/img/bg-card1.png") no-repeat;
+				width: 100%;
+  			height: auto;
+				background-position: bottom;
+				background-color: white;
+				background-size: cover;
+				}
+
+				.bg{
+				background: url("assets/img/bg2.png") no-repeat;
+				background-position: bottom;
+				height: auto;
+				background-color: #F2F2F2;
+				background-size: cover;
+				}
+				.bg-footer{
+				background: url("assets/img/footer.png") no-repeat;
+				background-position: bottom;
+				height: auto;
+				background-color: #F2F2F2;
+				background-size: cover;
+				}
+				</style>
+
+	</head>
+
+	<body>
+
+
+				<div class="wrapper">
+
+					<!-- sidebarMenu (START) -->
+
+					<div class="sidebar" data-background-color="STCStyle" data-active-color="whity">
+						<div class="logo" style="padding-bottom:120px; background-color: #fff;" href="#" onclick="window.location.reload(true);">
+							<img src="assets/img/logo.png">
+						</div>
+						<div class="logo logo-mini">
+							<a class="simple-text">
+								STC - X Project
+							</a>
+						</div>
+						<div class="sidebar-wrapper" style="overflow: auto;">
+							<div class="user">
+								<div class="photo">
+									<img src="assets/img/new_logo1.png" />
+								</div>
+								<div class="info">
+									<a data-toggle="collapse" href="#" onclick="window.location.reload(true);" aria-expanded="true">
+										<b>Admin</b>
+									</a>
+
+								</div>
+
+							</div>
+
+
+							</ul>
+
+							<ul class="nav">
+								<li>
+									<a data-toggle="collapse" href="#blacklistPortalMenu4">
+										<i class="ti-clipboard"></i>
+										<p>Reporting
+											<b class="caret"></b>
+										</p>
+									</a>
+									<div class="collapse" id="blacklistPortalMenu4">
+										<ul class="nav">
+											<li>
+												<li class="tablinks"><a class="form" href="#form10" onclick="addMasterSupplierTabelRaw();return false;">Get All Suppliers</a></li>
+												<li class="tablinks"><a class="form" href="#form20" onclick="addMasterConsumerTabelRaw();return false;">Get All Consumers</a></li>
+												<li class="tablinks"><a class="form" href="#form13" onclick="addContractTabelRaw();return false;">Get All Contracts</a></li>
+												<li class="tablinks"><a class="form" href="#form14" onclick="addShipmentTabelRaw();return false;">Get All Shipments</a></li>
+												<li class="tablinks"><a class="form" href="#form21" onclick="geViolations();return false;">Get All Violations</a></li>
+											</li>
+										</ul>
+									</div>
+								</li>
+
+							</ul>
+
+						</div>
+					</div>
+
+					<!-- sidebarMenu (START) -->
+
+					<div class="main-panel bg">
+
+						<div class="content">
+							<div class="container-fluid">
+								<div class="row">
+
+									<div id="form0" class="tabcontent">
+										<div class="col-md-10">
+											<div class="row">
+												<div class="col-md-12" style="padding-bottom:100px;">
+													<div class="card bg-card">
+														<div class="content" style="padding-bottom:70px;">
+															<img src="assets/img/logo-SC.png" style="opacity: 0.2;">
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<!-- ######## Manage Dealer ######## -->
+
+								<!-- Add New Master Dealer Page (START) -->
+								<div id="form1" class="tabcontent hide">
+									<form method="post">
+									<!-- Add New Master Dealer & Address (START) -->
+									<div class="col-md-8">
+										<!-- Add New Master Dealer Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Add New Dealer</h4>
+									      <p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+								          	<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>ID:</label>
+																	<input type="text" class="form-control border-input" placeholder="email" id="email">
+																</div>
+															</div>
+								          	</div>
+
+
+																<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Dealer Type:</label>
+																			<select class="selectpicker" name="type" data-title="Single Select" data-style="btn-danger btn-block" data-menu-style="dropdown-blue" id="dealerType">
+																				<option value="masterDealer">MasterDealer</option>
+																				<option value="subDealer">SubDealer</option>
+																				<option value="agentDealer">AgentDealer</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Parent Dealer if Available:</label>
+																	<input type="text" class="form-control border-input" placeholder="dealer" id="dealer">
+																</div>
+															</div>
+															</div>
+																<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Status:</label>
+																			<select class="selectpicker" name="type" data-title="Single Select" data-style="btn-danger btn-block" data-menu-style="dropdown-blue" id="dealerStatus">
+																				<option value="ACTIVE">Active</option>
+																				<option value="INACTIVE">In Active</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Cash Balance:</label>
+																	<input type="text" class="form-control border-input" placeholder="cashBalance" id="cashBalance">
+																</div>
+															</div>
+															</div>
+															<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>sawaCoin Balance:</label>
+																		<input type="text" class="form-control border-input" placeholder="accountBalance" id="sawaCoin">
+																	</div>
+																</div>
+																</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Add New Master Dealer Form (END) -->
+										<!-- Address Form (START) -->
+									<div class="row">
+										<div class="col-md-12">
+											 <div class="card bg-card">
+												 <div class="header">
+													 <h4 class="title"><span class="ti-location-pin" style="padding-right: 10px;"></span>Address</h4>
+													 <p class="category">Description about this header</p>
+												 </div>
+													 <div class="content">
+
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>City:</label>
+																		 <input type="text" class="form-control border-input" placeholder="city" id="city">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Country:</label>
+																		 <input type="text" class="form-control border-input" placeholder="country" id="country">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Street:</label>
+																		 <input type="text" class="form-control border-input" placeholder="street" id="street">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Zip:</label>
+																		 <input type="text" class="form-control border-input" placeholder="zip" id="zip">
+																	 </div>
+																 </div>
+															 </div>
+
+													 </div>
+											 </div>
+										</div>
+									</div>
+									<!-- Address Form (END) -->
+
+									</div>
+									<!-- Add New Master Dealer & Address (END) -->
+
+									<!-- Wallet Form (START) -->
+									<div class="col-md-4">
+									<div class="card bg-card">
+												<div class="header">
+													<h4 class="title"><span class="ti-wallet" style="padding-right: 10px;"></span>Wallet</h4>
+													<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 10:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa10" id="sawa10">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 20:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa20" id="sawa20">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 30:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa30" id="sawa30">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 50:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa50" id="sawa50">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 100:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa100" id="sawa100">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 200:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa200" id="sawa200">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 300:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa300" id="sawa300">
+																</div>
+																</div>
+															</div>
+														</div>
+
+												</div>
+											</div>
+											</div>
+
+											<!-- ## button Submit ## -->
+											<div class="row">
+												<div class="col-md-12" style="padding-right:20px; padding-bottom:120px;">
+													<button type="submit" class="btn btn-fill pull-right" onclick="addMasterDealer()">Submit</button>
+													
+												</div>
+											</div>
+											<!-- ## button Submit ## -->
+											<!-- Wallet Form (END) -->
+									</form>
+
+								</div>
+								<!-- Add New Master Dealer Page (END) -->
+
+
+
+								<!-- Add New Sub Dealer Page (START) -->
+								<div id="form2" class="tabcontent hide">
+									<form method="post">
+									<!-- Add New Sub Dealer & Address (START) -->
+									<div class="col-md-8">
+										<!-- Add New Sub Dealer Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Add New Sub Dealer</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>ID:</label>
+																	<input type="text" class="form-control border-input" placeholder="email" id="email_2">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Master Dealer:</label>
+																	<input type="text" class="form-control border-input" placeholder="MasterDealer" id="masterDealer_2">
+																</div>
+															</div>
+															</div>
+															<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>Account Balance:</label>
+																		<input type="text" class="form-control border-input" placeholder="accountBalance" id="accountBalance_2">
+																	</div>
+																</div>
+																</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Add New Sub Dealer Form (END) -->
+										<!-- Address Form (START) -->
+									<div class="row">
+										<div class="col-md-12">
+											 <div class="card bg-card">
+												 <div class="header">
+													 <h4 class="title"><span class="ti-location-pin" style="padding-right: 10px;"></span>Address</h4>
+													 <p class="category">Description about this header</p>
+												 </div>
+													 <div class="content">
+
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>City:</label>
+																		 <input type="text" class="form-control border-input" placeholder="city" id="city_2">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Country:</label>
+																		 <input type="text" class="form-control border-input" placeholder="country" id="country_2">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Street:</label>
+																		 <input type="text" class="form-control border-input" placeholder="street" id="street_2">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Zip:</label>
+																		 <input type="text" class="form-control border-input" placeholder="zip" id="zip_2">
+																	 </div>
+																 </div>
+															 </div>
+
+													 </div>
+											 </div>
+										</div>
+									</div>
+									<!-- Address Form (END) -->
+
+									</div>
+									<!-- Add New Sub Dealer & Address (END) -->
+
+									<!-- Wallet Form (START) -->
+									<div class="col-md-4">
+									<div class="card bg-card">
+												<div class="header">
+													<h4 class="title"><span class="ti-wallet" style="padding-right: 10px;"></span>Wallet</h4>
+													<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 10:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa10" id="sawa10_2">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 20:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa20" id="sawa20_2">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 30:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa30" id="sawa30_2">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 50:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa50" id="sawa50_2">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 100:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa100" id="sawa100_2">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 200:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa200" id="sawa200_2">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 300:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa300" id="sawa300_2">
+																</div>
+																</div>
+															</div>
+														</div>
+
+												</div>
+											</div>
+											</div>
+											<!-- Wallet Form (END) -->
+											<!-- ## button Submit ## -->
+											<div class="row">
+												<div class="col-md-12" style="padding-right:20px; padding-bottom:120px;">
+													<button type="submit" class="btn btn-fill pull-right" onclick="addSubDealer()">Submit</button>
+												</div>
+											</div>
+											<!-- ## button Submit ## -->
+											<!-- Wallet Form (END) -->
+									</form>
+								</div>
+								<!-- Add New Sub Dealer Page (END) -->
+
+
+
+								<!-- Create New Agent page (START) -->
+								<div id="form3" class="tabcontent hide">
+									<form method="post">
+									<!-- Create New Agent & Address (START) -->
+									<div class="col-md-8">
+										<!-- Create New Agent Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Create New Agent</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>ID:</label>
+																	<input type="text" class="form-control border-input" placeholder="email" id="email_3">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Sub Dealer Id:</label>
+																	<input type="text" class="form-control border-input" placeholder="SubDealer" id="subDealer_3">
+																</div>
+															</div>
+															</div>
+															<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>Account Balance:</label>
+																		<input type="text" class="form-control border-input" placeholder="accountBalance" id="accountBalance_3">
+																	</div>
+																</div>
+																</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Create New Agent Form (END) -->
+										<!-- Address Form (START) -->
+									<div class="row">
+										<div class="col-md-12">
+											 <div class="card bg-card">
+												 <div class="header">
+													 <h4 class="title"><span class="ti-location-pin" style="padding-right: 10px;"></span>Address</h4>
+													 <p class="category">Description about this header</p>
+												 </div>
+													 <div class="content">
+
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>City:</label>
+																		 <input type="text" class="form-control border-input" placeholder="city" id="city_3">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Country:</label>
+																		 <input type="text" class="form-control border-input" placeholder="country" id="country_3">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Street:</label>
+																		 <input type="text" class="form-control border-input" placeholder="street" id="street_3">
+																	 </div>
+																 </div>
+															 </div>
+															 <div class="row">
+																 <div class="col-md-5">
+																	 <div class="form-group">
+																		 <label>Zip:</label>
+																		 <input type="text" class="form-control border-input" placeholder="zip" id="zip_3">
+																	 </div>
+																 </div>
+															 </div>
+
+													 </div>
+											 </div>
+										</div>
+									</div>
+									<!-- Address Form (END) -->
+
+									</div>
+									<!-- Create New Agent Form & Address (END) -->
+
+									<!-- Wallet Form (START) -->
+									<div class="col-md-4">
+									<div class="card bg-card">
+												<div class="header">
+													<h4 class="title"><span class="ti-wallet" style="padding-right: 10px;"></span>Wallet</h4>
+													<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 10:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa10" id="sawa10_3">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 20:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa20" id="sawa20_3">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 30:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa30" id="sawa30_3">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 50:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa50" id="sawa50_3">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 100:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa100" id="sawa100_3">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 200:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa200" id="sawa200_3">
+																</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="form-group">
+																<div class="row" style="padding-left:15px;">
+																<label class="col-md-4 control-label" style="padding-top: 10px;">Sawa 300:</label>
+																<div class="col-md-6">
+																	<input type="text" class="form-control border-input" placeholder="sawa300" id="sawa300_3">
+																</div>
+																</div>
+															</div>
+														</div>
+
+												</div>
+											</div>
+											</div>
+											<!-- Wallet Form (END) -->
+											<!-- ## button Submit ## -->
+											<div class="row">
+												<div class="col-md-12" style="padding-right:20px; padding-bottom:120px;">
+													<button type="submit" class="btn btn-fill pull-right" onclick="addAgent()">Submit</button>
+												</div>
+											</div>
+											<!-- ## button Submit ## -->
+											<!-- Wallet Form (END) -->
+									</form>
+								</div>
+								<!-- Create New Agent Page (END) -->
+
+								<!-- ######## Manage Contract & Shipment ######## -->
+
+								<!-- Create New Contract Page (START) -->
+								<div id="form4" class="tabcontent hide">
+									<form method="post">
+									<!-- Create New Contract (START) -->
+									<div class="col-md-8">
+										<!-- Create New Contract Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Create New Contract</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>STC Sales:</label>
+																	<input type="text" class="form-control border-input" placeholder="STC" id="stc_c">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Master Dealer:</label>
+																	<input type="text" class="form-control border-input" placeholder="MasterDealer" id="masterDealer_c">
+																</div>
+															</div>
+															</div>
+															<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>Contract Id:</label>
+																		<input type="text" class="form-control border-input" placeholder="ContractId" id="ContractId_c">
+																	</div>
+																</div>
+																</div>
+															<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>Status:</label>
+																		<input type="text" class="form-control border-input" value="OPEN" readonly="true" id="status_c">
+																	</div>
+																</div>
+															</div>
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Unit Discount:</label>
+																	<input type="text" class="form-control border-input" placeholder="unitDiscount%" id="unitDiscount_c">
+														
+																</div>
+															</div>
+														</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Create New Contract Form (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+											<div class="col-md-12" style="padding-bottom:100px;">
+												<button type="submit" class="btn btn-fill pull-right" onclick="createNewContract()">Submit</button>
+											</div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Create New Contract (END) -->
+									</form>
+
+								</div>
+								<!-- Create New Contract Page (END) -->
+
+
+
+								<!-- Create STC Shipment Page (START) -->
+								<div id="form5" class="tabcontent hide">
+									<form method="post">
+									<!-- Create STC Shipment (START) -->
+									<div class="col-md-8">
+										<!-- Create STC Shipment Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Create STC Shipment</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Shipment Id:</label>
+																			<input type="text" class="form-control border-input" placeholder="ShipmentId" id="ShipmentId_sh1">
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Contract:</label>
+																			<input type="text" class="form-control border-input" placeholder="contract" id="contract_sh1">
+																		</div>
+																	</div>
+																</div>
+																<div class="row" style="padding-top: 10px; padding-bottom:10px;">
+																	<div class="col-md-5">
+																	<p class="category"><b>Shipment Details</b></p>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Product Type:</label>
+																			<select class="selectpicker" name="type" data-title="Single Select" data-style="btn-danger btn-block" data-menu-style="dropdown-blue" id="type_sh1">
+																				<option value="SAWA10">Sawa 10</option>
+																				<option value="SAWA20">Sawa 20</option>
+																				<option value="SAWA30">Sawa 30</option>
+																				<option value="SAWA50">Sawa 50</option>
+																				<option value="SAWA100">Sawa 100</option>
+																				<option value="SAWA200">Sawa 200</option>
+																				<option value="SAWA300">Sawa 300</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Status:</label>
+																			<input type="text" class="form-control border-input" value="NEW" readonly="true" id="status_sh1">
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Product Count:</label>
+																			<input type="text" class="form-control border-input" placeholder="unitCount" id="unitCount_sh1">
+																		</div>
+																	</div>
+																</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Create STC Shipment Form (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+											<div class="col-md-12" style="padding-bottom:100px;">
+												<button type="submit" class="btn btn-fill pull-right" onclick="createSTCShipment()">Submit</button>
+											</div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Create STC Shipment (END) -->
+									</form>
+
+								</div>
+								<!-- Create STC Shipment Page (END) -->
+
+
+
+								<!-- Create Dealer Shipment Page (START) -->
+								<div id="form6" class="tabcontent hide">
+									<form method="post">
+									<!-- Create Dealer Shipment (START) -->
+									<div class="col-md-8">
+										<!-- Create Dealer Shipment Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Create Dealer Shipment</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+																		<div class="col-md-5">
+																			<div class="form-group">
+																				<label>Shipment Id:</label>
+																				<input type="text" class="form-control border-input" placeholder="ShipmentId" id="ShipmentId_sh2">
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row" style="padding-top: 10px; padding-bottom:10px;">
+																		<div class="col-md-5">
+																		<p class="category"><b>Shipment Details</b></p>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-5">
+																			<div class="form-group">
+																				<label>Product Type:</label>
+																				<select class="selectpicker" name="type" data-title="Single Select" data-style="btn-danger btn-block" data-menu-style="dropdown-blue" id="type_sh2">
+																				<option value="SAWA10">Sawa 10</option>
+																				<option value="SAWA20">Sawa 20</option>
+																				<option value="SAWA30">Sawa 30</option>
+																				<option value="SAWA50">Sawa 50</option>
+																				<option value="SAWA100">Sawa 100</option>
+																				<option value="SAWA200">Sawa 200</option>
+																				<option value="SAWA300">Sawa 300</option>
+																			</select>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-5">
+																			<div class="form-group">
+																				<label>Status:</label>
+																				<input type="text" class="form-control border-input" value="NEW" readonly="true" id="status_sh2">
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-5">
+																			<div class="form-group">
+																				<label>Product Count:</label>
+																				<input type="text" class="form-control border-input" placeholder="unitCount" id="unitCount_sh2">
+																			</div>
+																		</div>
+																	</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Create Dealer Shipment Form (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+											<div class="col-md-12" style="padding-bottom:100px;">
+												<button type="submit" class="btn btn-fill pull-right" onclick="createDealerShipment()">Submit</button>
+											</div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Create Dealer Shipment (END) -->
+									</form>
+
+
+								</div>
+								<!-- Create Dealer Shipment Page (END) -->
+
+								<!-- ######## TRANSACTIONS ######## -->
+
+								<!-- Send Shipment to Master Dealer Page (START) -->
+								<div id="form7" class="tabcontent hide">
+									<form method="post">
+									<!-- Send Shipment to Master Dealer (START) -->
+									<div class="col-md-8">
+										<!-- Send Shipment to Master Dealer Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Send STC Shipment to Master Dealer</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+																			<div class="col-md-5">
+																				<div class="form-group">
+																					<label>Shipment:</label>
+																					<input type="text" class="form-control border-input" placeholder="shipment" id="shipment_t1">
+																				</div>
+																			</div>
+																		</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Send Shipment to Master Dealer Form (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+										  <div class="col-md-12" style="padding-bottom:360px;">
+										    <button type="submit" class="btn btn-fill pull-right" onclick="sendShipmentToMasterDealer()">Submit</button>
+										  </div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Send Shipment to Master Dealer (END) -->
+									</form>
+								</div>
+								<!-- Send Shipment to Master Dealer Page (END) -->
+
+
+
+								<!-- Send Shipment to Sub Dealer Page (START) -->
+								<div id="form8" class="tabcontent hide">
+									<form method="post">
+									<!-- Send Shipment to Sub Dealer (START) -->
+									<div class="col-md-8">
+										<!-- Send Shipment to Sub Dealer Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Send Dealer Shipment</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>Shipment:</label>
+																		<input type="text" class="form-control border-input" placeholder="shipment" id="shipment_t2">
+																	</div>
+																</div>
+														</div>
+														<div class="row">
+																<div class="col-md-5">
+																	<div class="form-group">
+																		<label>Dealer:</label>
+																		<input type="text" class="form-control border-input" placeholder="subDealer" id="subDealer_t2">
+																	</div>
+																</div>
+														</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Send Shipment to Sub Dealer Form (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+										  <div class="col-md-12" style="padding-bottom:280px;">
+										    <button type="submit" class="btn btn-fill pull-right" onclick="sendShipmentToSubDealer()">Submit</button>
+										  </div>
+										</div>
+										<!-- ## button Submit ## -->
+
+									</div>
+									<!-- Send Shipment to Sub Dealer (END) -->
+									</form>
+								</div>
+								<!-- Send Shipment to Sub Dealer Page (END) -->
+
+
+
+								<!-- Send Shipment to Agent Page (START) -->
+								<div id="form9" class="tabcontent hide">
+									<form method="post">
+									<!-- Send Shipment to Agent (START) -->
+									<div class="col-md-8">
+										<!-- Send Shipment to Agent Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Top-up MasterDealer Cash Balance</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Amount:</label>
+																	<input type="text" class="form-control border-input" placeholder="amount" id="amount">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Dealer:</label>
+																	<input type="text" class="form-control border-input" placeholder="dealer_9" id="dealer_9">
+																</div>
+															</div>
+														</div>
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Send Shipment to Agent Form (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+										  <div class="col-md-12" style="padding-bottom:280px;">
+										    <button type="submit" class="btn btn-fill pull-right" onclick="topupMasterDealerBalance()">Submit</button>
+										  </div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Send Shipment to Agent (END) -->
+									</form>
+								</div>
+								<!-- Send Shipment to Agent Page (END) -->
+
+
+
+								<!-- Set Dealer Status (START) -->
+
+								<!-- Set Contract Status (START) -->
+								<div id="form17" class="tabcontent hide">
+									<form method="post">
+									<!-- Send Shipment to Agent (START) -->
+									<div class="col-md-8">
+										<!-- Send Shipment to Agent Form (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Set Contract Status</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Contract:</label>
+																	<input type="text" class="form-control border-input" placeholder="contract" id="contract_17">
+																</div>
+															</div>
+														</div>
+
+														<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Status:</label>
+																			<select class="selectpicker" name="type" data-title="Single Select" data-style="btn-danger btn-block" data-menu-style="dropdown-blue" id="contractStatus_17">
+																				<option value="OPEN">Open</option>
+																				<option value="CLOSED">Closed</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Set Contract Status (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+										  <div class="col-md-12" style="padding-bottom:280px;">
+										    <button type="submit" class="btn btn-fill pull-right" onclick="setContractStatus()">Submit</button>
+										  </div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Set Contract Status (END) -->
+									</form>
+								</div>
+								<!-- Set Contract Status Page (END) -->
+
+
+								<!-- Set Shipment Status (START) -->
+								<div id="form18" class="tabcontent hide">
+									<form method="post">
+									<!-- Send Shipment to Agent (START) -->
+									<div class="col-md-8">
+										<!-- Set Shipment Status (START) -->
+										<div class="row">
+											<div class="col-md-12">
+										<div class="card bg-card">
+											<div class="header">
+												<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Set Shipment Status</h4>
+												<p class="category">Description about this header</p>
+												</div>
+												<div class="content">
+
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group">
+																	<label>Contract:</label>
+																	<input type="text" class="form-control border-input" placeholder="shipment" id="shipment_18">
+																</div>
+															</div>
+														</div>
+
+														<div class="row">
+																	<div class="col-md-5">
+																		<div class="form-group">
+																			<label>Status:</label>
+																			<select class="selectpicker" name="type" data-title="Single Select" data-style="btn-danger btn-block" data-menu-style="dropdown-blue" id="shipmentStatus_18">
+																				<option value="NEW">New</option>
+																				<option value="ARRIVED">Arrived</option>
+																				<option value="CANCELLED">Cancelled</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+
+
+												</div>
+										</div>
+											</div>
+										</div>
+										<!-- Set Shipment Status (END) -->
+										<!-- ## button Submit ## -->
+										<div class="row">
+										  <div class="col-md-12" style="padding-bottom:280px;">
+										    <button type="submit" class="btn btn-fill pull-right" onclick="setShipmentStatus()">Submit</button>
+										  </div>
+										</div>
+										<!-- ## button Submit ## -->
+									</div>
+									<!-- Set Shipment Status (END) -->
+									</form>
+								</div>
+								<!-- Set Shipment Status Page (END) -->
+
+
+								<!-- ######## REPORTING ######## -->
+
+								<!-- Get All Suppliers Table (START) -->
+								<div id="form10" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Suppliers</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+															<table id="masterSupplier" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="email" data-sortable="true" class="text-center">Id    </th>
+																	<th data-field="address" data-sortable="true" class="text-center">Address</th>
+																	<th data-field="accountbalance" data-sortable="true" class="text-center">Balance</th>
+																</thead>
+																<tbody>
+<script>
+function addMasterSupplierTabelRaw(){
+fetch('http://c8ybitcoin.eastus.cloudapp.azure.com:3000/api/Supplier')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	  
+
+	   var step;
+	   var address;
+	   var noData = 0;
+	    for (step = 0; step < data.length; step++) {
+		
+		var address = "";
+		if(data[step].address.street){
+		address = data[step].address.street + ", ";
+		}
+		if(data[step].address.city){
+		address = address + data[step].address.city + ", ";
+		}
+		if(data[step].address.country){
+		address = address + data[step].address.country + ", ";
+		}
+		if(data[step].address.zip){
+		address = address + data[step].address.zip;
+		}
+		
+		
+		
+	    //var address = data[step].address.street + ", " + data[step].address.city + ", " + data[step].address.country + ", " + data[step].address.zip
+	    var tblRow  = "<tr>" + "<td class='text-center'>" + data[step].email + "</td>" +
+                               "<td class='text-center'>" + address + "</td>" +
+							   "<td class='text-center'>" + data[step].accountBalance + "</td>"+
+					  "</tr>"
+
+
+
+        if(noData == 0 ) {
+           var rowCount = masterSupplier.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            masterSupplier.deleteRow(i);
+          }
+		  noData = 1;
+        }
+
+		$(tblRow).appendTo("#form10 tbody");
+
+      }
+
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+	}
+</script>
+															</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get All Master Suppliers Table (END) -->
+								
+								
+								<!-- Get All Suppliers Table (START) -->
+								<div id="form21" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Suppliers</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+															<table id="violations" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="shipment" data-sortable="true" class="text-center">ShipmentId</th>
+																	<th data-field="temperature" data-sortable="true" class="text-center">Temperature</th>
+																	<th data-field="latitude" data-sortable="true" class="text-center">Latitude</th>
+																	<th data-field="longitude" data-sortable="true" class="text-center">Longitude</th>
+																	<th data-field="readingTime" data-sortable="true" class="text-center">When?</th>
+																</thead>
+																<tbody>
+<script>
+function geViolations(){
+fetch('https://waleedstc.int-aws-us.webmethods.io/runflow/run/sync/9rpNzFVDj?shipmentId=Violations')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	  
+
+	   var step;
+	   var noData = 0;
+	   for (step = 0; step < data.event.length; step++) {
+
+	    //var address = data[step].address.street + ", " + data[step].address.city + ", " + data[step].address.country + ", " + data[step].address.zip
+	    var tblRow  = "<tr>" + "<td class='text-center'>" + data.event[step].shipment + "</td>" +
+                               "<td class='text-center'>" + data.event[step].temperature + "</td>" +
+							   "<td class='text-center'>" + data.event[step].latitude + "</td>" +
+							   "<td class='text-center'>" + data.event[step].longitude + "</td>" +
+							   "<td class='text-center'>" + data.event[step].readingTime + "</td>"+
+					  "</tr>"
+
+       if(noData == 0 ) {
+           var rowCount = violations.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            violations.deleteRow(i);
+          }
+		  noData = 1;
+        }
+
+		$(tblRow).appendTo("#form21 tbody");
+		
+		}
+
+      
+
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+	}
+</script>
+
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get All Master Suppliers Table (END) -->
+
+
+								<!-- Get All Consumer Table (START) -->
+								<div id="form20" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Consumers</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+															<table id="masterConsumer" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="email" data-sortable="true" class="text-center">Id    </th>
+																	<th data-field="address" data-sortable="true" class="text-center">Address</th>
+																	<th data-field="accountbalance" data-sortable="true" class="text-center">Balance</th>
+																</thead>
+																<tbody>
+<script>
+function addMasterConsumerTabelRaw(){
+fetch('http://c8ybitcoin.eastus.cloudapp.azure.com:3000/api/Consumer')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	  
+
+	   var step;
+	   var address;
+	   var noData = 0;
+	    for (step = 0; step < data.length; step++) {
+		
+		var address = "";
+		if(data[step].address.street){
+		address = data[step].address.street + ", ";
+		}
+		if(data[step].address.city){
+		address = address + data[step].address.city + ", ";
+		}
+		if(data[step].address.country){
+		address = address + data[step].address.country + ", ";
+		}
+		if(data[step].address.zip){
+		address = address + data[step].address.zip;
+		}
+		
+		
+		
+	    //var address = data[step].address.street + ", " + data[step].address.city + ", " + data[step].address.country + ", " + data[step].address.zip
+	    var tblRow  = "<tr>" + "<td class='text-center'>" + data[step].email + "</td>" +
+                               "<td class='text-center'>" + address + "</td>" +
+							   "<td class='text-center'>" + data[step].accountBalance + "</td>"+
+					  "</tr>"
+
+
+
+        if(noData == 0 ) {
+           var rowCount = masterConsumer.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            masterConsumer.deleteRow(i);
+          }
+		  noData = 1;
+        }
+
+		$(tblRow).appendTo("#form20 tbody");
+
+      }
+
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+	}
+</script>
+															</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get All Master Dealer Table (END) -->
+
+
+
+								<!-- Get All Sub Dealers Table (START) -->
+								<div id="form11" class="tabcontent hide">
+
+										<div class="row">
+											<div class="col-md-12" style="padding-bottom:100px;">
+												<div class="card bg-card" style="padding-bottom:100px;">
+													<div class="header">
+														<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Sub Dealers</h4>
+														<p class="category">Description about this header</p>
+														<div class="content">
+															<div class="row">
+
+																<table id="subDealer" class="bootstrap-table">
+																	<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																		<th data-field="email" data-sortable="true" class="text-center">Id</th>
+																		<th data-field="masterdealer" data-sortable="true" class="text-center">MasterDealer</th>
+																		<th data-field="accountbalance" data-sortable="true" class="text-center">AccountBalance</th>
+																		<th data-field="address" data-sortable="true" class="text-center">Address</th>
+																		<th data-field="sawa10" data-sortable="true" class="text-center">SAWA10</th>
+																		<th data-field="sawa20" data-sortable="true" class="text-center">SAWA20</th>
+																		<th data-field="sawa30" data-sortable="true" class="text-center">SAWA30</th>
+																		<th data-field="sawa50" data-sortable="true" class="text-center">SAWA50</th>
+																		<th data-field="sawa100" data-sortable="true" class="text-center">SAWA100</th>
+																		<th data-field="sawa200" data-sortable="true" class="text-center">SAWA200</th>
+																		<th data-field="sawa300" data-sortable="true" class="text-center">SAWA300</th>
+																	</thead>
+																	<tbody>
+<script>
+function addSubDealerTabelRaw(){
+fetch('http://localhost:3000/api/SubDealer')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	   var step;
+	   var address;
+	   var noData = 0;
+	   for (step = 0; step < data.length; step++) {
+	    var address = data[step].address.street + ", " + data[step].address.city + ", " + data[step].address.country + ", " + data[step].address.zip
+	    var masterDealer = data[step].masterDealer
+		var tblRow = "<tr>" + "<td>" + data[step].email + "</td>" +
+		                      "<td>" + masterDealer.substring(masterDealer.indexOf("#")+1,masterDealer.length) + "</td>" +
+							  "<td> " + data[step].accountBalance + "</td>" +
+							  "<td>" + address + "</td>" +
+							  "<td> " + data[step].wallet.sawa10 + "</td>" +
+							  "<td> " + data[step].wallet.sawa20 + "</td>" +
+							  "<td> " + data[step].wallet.sawa30 + "</td>" +
+							  "<td> " + data[step].wallet.sawa50 + "</td>" +
+							  "<td> " + data[step].wallet.sawa100 + "</td>" +
+							  "<td> " + data[step].wallet.sawa200 + "</td>" +
+							  "<td> " + data[step].wallet.sawa300 + "</td>" +
+							  "</tr>"
+
+	    if(noData == 0 ) {
+           var rowCount = subDealer.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            subDealer.deleteRow(i);
+          }
+		  noData = 1;
+        }
+		$(tblRow).appendTo("#form11 tbody");
+
+	   }
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+}
+</script>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+								</div>
+								<!-- Get All Sub Dealers Table (END) -->
+
+
+
+								<!-- Get All Agents Table (START) -->
+								<div id="form12" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Agents</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+
+															<table id="agent" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="email" data-sortable="true" class="text-center">Id</th>
+																	<th data-field="subdealer" data-sortable="true" class="text-center">SubDealer</th>
+																	<th data-field="accountbalance" data-sortable="true" class="text-center">AccountBalance</th>
+																	<th data-field="address" data-sortable="true" class="text-center">Address</th>
+																	<th data-field="sawa10" data-sortable="true" class="text-center">SAWA10</th>
+																	<th data-field="sawa20" data-sortable="true" class="text-center">SAWA20</th>
+																	<th data-field="sawa30" data-sortable="true" class="text-center">SAWA30</th>
+																	<th data-field="sawa50" data-sortable="true" class="text-center">SAWA50</th>
+																	<th data-field="sawa100" data-sortable="true" class="text-center">SAWA100</th>
+																	<th data-field="sawa200" data-sortable="true" class="text-center">SAWA200</th>
+																	<th data-field="sawa300" data-sortable="true" class="text-center">SAWA300</th>
+																</thead>
+																<tbody>
+<script>
+function addAgentTabelRaw(){
+fetch('http://localhost:3000/api/Agent')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	   var step;
+	   var address;
+	   var noData= 0;
+	   for (step = 0; step < data.length; step++) {
+	    var address = data[step].address.street + ", " + data[step].address.city + ", " + data[step].address.country + ", " + data[step].address.zip
+	    var subDealer = data[step].subDealer;
+		var tblRow = "<tr>" + "<td>" + data[step].email + "</td>" +
+		                      "<td>" + subDealer.substring(subDealer.indexOf("#")+1,subDealer.length) + "</td>" +
+							  "<td> " + data[step].accountBalance + "</td>" +
+							  "<td>" + address + "</td>" +
+							  "<td> " + data[step].wallet.sawa10 + "</td>" +
+							  "<td> " + data[step].wallet.sawa20 + "</td>" +
+							  "<td> " + data[step].wallet.sawa30 + "</td>" +
+							  "<td> " + data[step].wallet.sawa50 + "</td>" +
+							  "<td> " + data[step].wallet.sawa100 + "</td>" +
+							  "<td> " + data[step].wallet.sawa200 + "</td>" +
+							  "<td> " + data[step].wallet.sawa300 + "</td>" +
+							  "</tr>"
+
+         if(noData == 0 ) {
+           var rowCount = agent.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            agent.deleteRow(i);
+          }
+		  noData = 1;
+        }
+		$(tblRow).appendTo("#form12 tbody");
+
+	   }
+     // document.write("accountBalance:" + data[0].accountBalance + ", email:" + data[0].email + ", country: " + data[0].address.country );
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+}
+</script>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get All Agents Table (END) -->
+
+
+								<!-- Get All Contracts Table (START) -->
+								<div id="form13" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Contracts</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+
+															<table id="contract" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="contractid" data-sortable="true" class="text-center">ContractId</th>
+																	<th data-field="supplier" data-sortable="true" class="text-center">Supplier</th>
+																	<th data-field="consumer" data-sortable="true" class="text-center">Consumer</th>
+																	<th data-field="shipper" data-sortable="true" class="text-center">Shipper</th>
+																	<th data-field="unitPrice" data-sortable="true" class="text-center">Unit Price</th>
+																	<th data-field="minTemperature" data-sortable="true" class="text-center">Minimum Temperature</th>
+																	<th data-field="maxTemperature" data-sortable="true" class="text-center">Maximum Temperature</th>
+																	<th data-field="arrivalDateTime" data-sortable="true" class="text-center">"   Arrival DateTime    "</th>
+																	<th data-field="maxPenaltyFactor" data-sortable="true" class="text-center">Penalty Factor</th>
+																	<th data-field="maxAccel" data-sortable="true" class="text-center">Maximum Acceleration</th>
+																</thead>
+																<tbody>
+<script>
+function addContractTabelRaw(){
+fetch('http://c8ybitcoin.eastus.cloudapp.azure.com:3000/api/Contract')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	   var step;
+	   var noData = 0;
+	   for (step = 0; step < data.length; step++) {
+	   var supplier = data[step].supplier;
+	   var consumer = data[step].consumer;
+	   var shipper  = data[step].shipper;
+	   var tblRow = "<tr>"  + "<td class='text-center'>" + data[step].contractId + "</td>" +
+		                      "<td class='text-center'>" + supplier.substring(supplier.indexOf("#")+1,supplier.length) + "</td>" +
+							  "<td class='text-center'>" + consumer.substring(consumer.indexOf("#")+1,consumer.length) + "</td>" +
+							  "<td class='text-center'>" + shipper.substring(shipper.indexOf("#")+1,shipper.length) + "</td>" +
+							  "<td class='text-center'>" + data[step].unitPrice  + "</td>" +
+							  "<td class='text-center'>" + data[step].minTemperature  + "</td>" +
+							  "<td class='text-center'>" + data[step].maxTemperature  + "</td>" +
+							  "<td>" + data[step].arrivalDateTime  + "</td>" +
+							  "<td class='text-center'>" + data[step].maxPenaltyFactor  + "%</td>" +
+							  "<td class='text-center'>" + data[step].maxAccel  + "</td>" +
+					"</tr>"
+							 
+
+		if(noData == 0 ) {
+           var rowCount = contract.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            contract.deleteRow(i);
+          }
+		  noData = 1;
+        }
+		$(tblRow).appendTo("#form13 tbody");
+
+	   }
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+}
+</script>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get All Contracts Table (END) -->
+
+
+								<!-- Get all STC Shipment Table (START) -->
+								<div id="form14" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get all Shipments</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+
+															<table id="Shipment" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="shipmentId" data-sortable="true" class="text-center">ShipmentId</th>
+																	<th data-field="contract" data-sortable="true" class="text-center">ContractId</th>
+																	<th data-field="type" data-sortable="true" class="text-center">ProductType</th>
+																	<th data-field="status" data-sortable="true" class="text-center">Status</th>
+																	<th data-field="unitCount" data-sortable="true" class="text-center">Quantity</th>
+																</thead>
+																<tbody>
+																
+														
+<script>
+function addShipmentTabelRaw(){
+fetch('http://c8ybitcoin.eastus.cloudapp.azure.com:3000/api/Shipment')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	   var step;
+	   var noData = 0;
+	   for (step = 0; step < data.length; step++) {
+	   var contract = data[step].contract;
+	   var tblRow = "<tr>" + "<td class='text-center'>" + data[step].shipmentId + "</td>" +
+	                         "<td class='text-center'>" + contract.substring(contract.indexOf("#")+1,contract.length) + "</td>" +
+							 "<td class='text-center'>" + data[step].type + "</td>" +
+		                     "<td class='text-center'>" + data[step].status + "</td>" +
+							 "<td class='text-center'>" + data[step].unitCount + "</td>" +
+							 "</tr>"
+
+		if( noData == 0 ) {
+           var rowCount = Shipment.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            Shipment.deleteRow(i);
+          }
+		  noData = 1;
+        }
+		$(tblRow).appendTo("#form14 tbody");
+
+	   }
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+}
+</script>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get all STC Shipment Table (END) -->
+
+
+								<!-- Get All Dealer Shipment Table (START) -->
+								<div id="form15" class="tabcontent hide">
+
+									<div class="row">
+										<div class="col-md-12" style="padding-bottom:100px;">
+											<div class="card bg-card" style="padding-bottom:100px;">
+												<div class="header">
+													<h4 class="title"><span class="ti-pencil-alt" style="padding-right: 10px;"></span>Get All Dealer Shipments</h4>
+													<p class="category">Description about this header</p>
+													<div class="content">
+														<div class="row">
+
+															<table id="dealerShipment" class="bootstrap-table">
+																<thead style="border-bottom: 1px solid rgb(207, 207, 202);">
+																	<th data-field="shipmentid" data-sortable="true" class="text-center">ShipmentId</th>
+																	<th data-field="producttype" data-sortable="true" class="text-center">ProductType</th>
+																	<th data-field="status" data-sortable="true" class="text-center">Status</th>
+																	<th data-field="productcount" data-sortable="true" class="text-center">ProductCount</th>
+																</thead>
+																<tbody>
+<script>
+function addDealerShipmentTabelRaw(){
+fetch('http://localhost:3000/api/DealerShipment')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+	   var step;
+	   var address;
+	   var noData= 0;
+	   for (step = 0; step < data.length; step++) {
+	   var tblRow = "<tr>" + "<td>" + data[step].ShipmentId + "</td>" +
+							 "<td>" + data[step].type + "</td>" +
+		                     "<td>" + data[step].status + "</td>" +
+							 "<td>" + data[step].unitCount + "</td>" +
+							 "</tr>"
+
+		if( noData == 0 ) {
+           var rowCount = dealerShipment.rows.length;
+           for (var i = rowCount - 1; i > 0; i--) {
+            dealerShipment.deleteRow(i);
+          }
+		  noData = 1;
+        }
+		$(tblRow).appendTo("#form15 tbody");
+
+	   }
+    })
+    .catch(err => {
+        console.error('An error ocurred', err);
+    });
+}
+</script>
+
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Get All Dealer Shipment Table (END) -->
+
+								</div>
+							</div>
+						</div>
+
+						
+
+
+
+					</div>
+
+				</div>
+
+
+				<script>
+				$(document).ready(function(){
+
+					$(".tablinks").click(function(e){
+						e.preventDefault();
+						var a = $(this).children("a").attr("href");
+
+						hideAllForms();
+
+						$(a).removeClass("hide");
+
+
+					});
+
+
+				});
+
+
+				function hideAllForms()
+				{
+					$(".tabcontent").each(function()
+					{
+							$(this).addClass("hide");
+					});
+				}
+
+			$(document).ready(function()
+			{
+				$('button').on('click',function(e)
+				{
+					e.preventDefault();
+					swal({
+						type:'success',
+						title:'Success',
+						html:'Request executed',
+						confirmButtonText:'OK',
+						showCloseButton: true
+					}, function(isConfirmed)
+						 {
+								if(isConfirmed)
+								{
+
+								}
+						 });
+				});
+
+			});
+		
+			
+				</script>
+
+				<script>
+
+					var $table = $(".bootstrap-table");
+
+					$table.bootstrapTable(
+					{
+						clickToSelect: false,
+						showRefresh: false,
+						search: true,
+						showToggle: false,
+						showColumns: false,
+						pagination: true,
+						searchAlign: 'left',
+						pageSize: 10,
+						pageList: [10,25,50,100],
+						sortName: 'requestTimestamp',
+						sortOrder: 'desc',
+
+						formatShowingRows: function(pageFrom, pageTo, totalRows)
+						{
+							//do nothing here, we don't want to show the text "showing x of y from..."
+						},
+						formatRecordsPerPage: function(pageNumber)
+						{
+							return pageNumber + " rows visible";
+						},
+						icons:
+						{
+							refresh: 'fa fa-refresh',
+							toggle: 'fa fa-th-list',
+							columns: 'fa fa-columns',
+							detailOpen: 'fa fa-plus-circle',
+							detailClose: 'ti-close'
+						}
+					});
+
+					$(window).resize(function ()
+					{
+						$table.bootstrapTable('resetView');
+					});
+
+				</script>
+
+		<script>
+
+				// ## REST API Code ##
+
+				// POST FORM 1
+				function addMasterDealer(){
+							var requestBody = "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.Dealer\",\n"+
+												"  \"type\": \"" + document.getElementById('dealerType').value + "\",\n"+
+							                    "  \"wallet\": {\n"+
+							                    "     \"$class\": \"org.stc.sawa.coin.SawaWallet\",\n"+
+							                    "     \"sawa10\": "   + document.getElementById('sawa10').value + ",\n"+
+							                    "     \"sawa20\": "   + document.getElementById('sawa20').value + ",\n"+
+							                    "     \"sawa30\": "   + document.getElementById('sawa30').value + ",\n"+
+							                    "     \"sawa50\": "   + document.getElementById('sawa50').value + ",\n"+
+							                    "     \"sawa100\": "  + document.getElementById('sawa100').value + ",\n"+
+							                    "     \"sawa200\": "  + document.getElementById('sawa200').value + ",\n"+
+												"     \"sawa300\": "  + document.getElementById('sawa300').value + ",\n"+
+							                    "     \"sawaCoin\": " + document.getElementById('sawaCoin').value + " \n"+
+							                    "  },\n"+
+												"     \"dealerStatus\": \"" + document.getElementById('dealerStatus').value + "\",\n";
+				if(document.getElementById('dealerType').value != 'masterDealer'){
+				 requestBody +=                 "  \"dealer\": \"resource:org.stc.sawa.coin.Dealer#"+ document.getElementById('dealer').value + "\",\n";
+				}
+				requestBody +=                  "  \"email\": \"" + document.getElementById('email').value + "\",\n"+
+							                    "  \"address\": {\n"+
+							                    "     \"$class\": \"org.stc.sawa.coin.Address\",\n"+
+							                    "     \"city\": \"" + document.getElementById('city').value + "\",\n"+
+							                    "     \"country\": \"" + document.getElementById('country').value + "\",\n"+
+							                    "     \"street\": \"" + document.getElementById('street').value + "\",\n"+
+							                    "     \"zip\": \"" + document.getElementById('zip').value + "\"\n"+
+							                    "  },\n"+
+							                    "  \"cashBalance\": " + document.getElementById('cashBalance').value + " \n"+
+							                    "}";
+							//alert(requestBody);
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/Dealer");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+							}
+
+				// POST FORM 2
+				function addSubDealer(){
+							var requestBody = "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.distribution.SubDealer\",\n"+
+							                    "  \"wallet\": {\n"+
+							                    "     \"$class\": \"org.stc.sawa.distribution.SawaWallet\",\n"+
+							                    "     \"sawa10\": " + document.getElementById('sawa10_2').value + ",\n"+
+							                    "     \"sawa20\": " + document.getElementById('sawa20_2').value + ",\n"+
+							                    "     \"sawa30\": " + document.getElementById('sawa30_2').value + ",\n"+
+							                    "     \"sawa50\": " + document.getElementById('sawa50_2').value + ",\n"+
+							                    "     \"sawa100\": " + document.getElementById('sawa100_2').value + ",\n"+
+							                    "     \"sawa200\": " + document.getElementById('sawa200_2').value + ",\n"+
+							                    "     \"sawa300\": " + document.getElementById('sawa300_2').value + " \n"+
+							                    "  },\n"+
+							                    "  \"masterDealer\": \"resource:org.stc.sawa.distribution.MasterDealer#"+ document.getElementById('masterDealer_2').value + "\",\n"+
+							                    "  \"email\": \"" + document.getElementById('email_2').value + "\",\n"+
+							                    "  \"address\": {\n"+
+							                    "     \"$class\": \"org.stc.sawa.distribution.Address\",\n"+
+							                    "     \"city\": \"" + document.getElementById('city_2').value + "\",\n"+
+							                    "     \"country\": \"" + document.getElementById('country_2').value + "\",\n"+
+							                    "     \"street\": \"" + document.getElementById('street_2').value + "\",\n"+
+							                    "     \"zip\": \"" + document.getElementById('zip_2').value + "\"\n"+
+							                    "  },\n"+
+							                    "  \"accountBalance\": " + document.getElementById('accountBalance_2').value + " \n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/SubDealer");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'admin'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+							}
+
+				// POST FORM 3
+				function addAgent(){
+							var requestBody = "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.distribution.Agent\",\n"+
+							                    "  \"wallet\": {\n"+
+							                    "     \"$class\": \"org.stc.sawa.distribution.SawaWallet\",\n"+
+							                    "     \"sawa10\": " + document.getElementById('sawa10_3').value + ",\n"+
+							                    "     \"sawa20\": " + document.getElementById('sawa20_3').value + ",\n"+
+							                    "     \"sawa30\": " + document.getElementById('sawa30_3').value + ",\n"+
+							                    "     \"sawa50\": " + document.getElementById('sawa50_3').value + ",\n"+
+							                    "     \"sawa100\": " + document.getElementById('sawa100_3').value + ",\n"+
+							                    "     \"sawa200\": " + document.getElementById('sawa200_3').value + ",\n"+
+							                    "     \"sawa300\": " + document.getElementById('sawa300_3').value + " \n"+
+							                    "  },\n"+
+							                    "  \"subDealer\": \"resource:org.stc.sawa.distribution.SubDealer#"+ document.getElementById('subDealer_3').value + "\",\n"+
+							                    "  \"email\": \"" + document.getElementById('email_3').value + "\",\n"+
+							                    "  \"address\": {\n"+
+							                    "     \"$class\": \"org.stc.sawa.distribution.Address\",\n"+
+							                    "     \"city\": \"" + document.getElementById('city_3').value + "\",\n"+
+							                    "     \"country\": \"" + document.getElementById('country_3').value + "\",\n"+
+							                    "     \"street\": \"" + document.getElementById('street_3').value + "\",\n"+
+							                    "     \"zip\": \"" + document.getElementById('zip_3').value + "\"\n"+
+							                    "  },\n"+
+							                    "  \"accountBalance\": " + document.getElementById('accountBalance_3').value + " \n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/Agent");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'admin'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+							}
+
+				// POST FORM 4
+				function createNewContract(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.Contract\",\n"+
+							                    "  \"ContractId\": \"" + document.getElementById('ContractId_c').value + "\",\n"+
+							                    "  \"status\": \"" + document.getElementById('status_c').value + "\",\n"+
+							                    "  \"stc\": \"resource:org.stc.sawa.coin.Stc#" + document.getElementById('stc_c').value + "\",\n"+
+							                    "  \"masterDealer\": \"resource:org.stc.sawa.coin.Dealer#" + document.getElementById('masterDealer_c').value + "\",\n"+
+							                    "  \"unitDiscount\": " + document.getElementById('unitDiscount_c').value + " \n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/Contract");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+
+							}
+
+				// POST FORM 5
+				function createSTCShipment(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.StcShipment\",\n"+
+							                    "  \"contract\": \"resource:org.stc.sawa.coin.Contract#" + document.getElementById('contract_sh1').value + "\",\n"+
+							                    "  \"ShipmentId\": \"" + document.getElementById('ShipmentId_sh1').value + "\",\n"+
+							                    "  \"type\": \"" + document.getElementById('type_sh1').value + "\",\n"+
+							                    "  \"status\": \"" + document.getElementById('status_sh1').value + "\",\n"+
+							                    "  \"unitCount\": " + document.getElementById('unitCount_sh1').value + " \n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/StcShipment");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+							}
+
+		    // POST FORM 6
+			  function createDealerShipment(){
+						var requestBody =   "{\n"+
+						                    "  \"$class\": \"org.stc.sawa.coin.DealerShipment\",\n"+
+						                    "  \"ShipmentId\": \"" + document.getElementById('ShipmentId_sh2').value + "\",\n"+
+						                    "  \"type\": \"" + document.getElementById('type_sh2').value + "\",\n"+
+						                    "  \"status\": \"" + document.getElementById('status_sh2').value + "\",\n"+
+						                    "  \"unitCount\": " + document.getElementById('unitCount_sh2').value + " \n"+
+						                    "}";
+						/*alert(requestBody);*/
+						var client=new XMLHttpRequest();
+						client.open("post","http://localhost:3000/api/DealerShipment");
+
+						client.setRequestHeader('Accept','application/json');
+						client.setRequestHeader('Content-Type','application/json');
+
+						client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'admin'));
+
+						client.onreadystatechange = function() {
+						    if(this.readyState = this.DONE) {
+						        var response = document.getElementById("response").innerHTML=this.status + this.response;
+						    }
+
+						};
+						client.send(requestBody);
+						}
+
+			  // POST FORM 7
+			  function sendShipmentToMasterDealer(){
+						var requestBody =   "{\n"+
+						                    "  \"$class\": \"org.stc.sawa.coin.SendShipmentToMasterDealer\",\n"+
+						                    "  \"shipment\": \"resource:org.stc.sawa.coin.StcShipment#" + document.getElementById('shipment_t1').value + "\"\n"+
+						                    "}";
+						//alert(requestBody);
+						var client=new XMLHttpRequest();
+						client.open("post","http://localhost:3000/api/SendShipmentToMasterDealer");
+
+						client.setRequestHeader('Accept','application/json');
+						client.setRequestHeader('Content-Type','application/json');
+
+						client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+						client.onreadystatechange = function() {
+						    if(this.readyState = this.DONE) {
+						        var response = document.getElementById("response").innerHTML=this.status + this.response;
+						    }
+
+						};
+						client.send(requestBody);
+						}
+
+				// POST FORM 8
+				function sendShipmentToSubDealer(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.SendShipmentToDealer\",\n"+
+							                    "  \"shipment\": \"resource:org.stc.sawa.coin.DealerShipment#" + document.getElementById('shipment_t2').value + "\",\n"+
+							                    "  \"dealer\": \"resource:org.stc.sawa.coin.Dealer#" + document.getElementById('subDealer_t2').value + "\"\n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/SendShipmentToDealer");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+
+							}
+
+				// POST FORM 9
+				//function sendShipmentToAgent(){
+				function topupMasterDealerBalance(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.TopupMasterDealerBalance\",\n"+
+							                    "  \"amount\": " + document.getElementById('amount').value + ",\n"+
+							                    "  \"dealer\": \"resource:org.stc.sawa.coin.Dealer#" + document.getElementById('dealer_9').value + "\"\n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/TopupMasterDealerBalance");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+
+							}
+
+
+			    // POST FORM 16
+
+				function setDealerStatus(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.SetDealerStatus\",\n"+
+							                    "  \"dealerStatus\": \"" + document.getElementById('dealerStatus_16').value + "\",\n"+
+							                    "  \"dealer\": \"resource:org.stc.sawa.coin.Dealer#" + document.getElementById('dealer_16').value + "\"\n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/SetDealerStatus");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+
+							}
+
+				// POST FORM 17
+
+				function setContractStatus(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.SetContractStatus\",\n"+
+							                    "  \"contractStatus\": \"" + document.getElementById('contractStatus_17').value + "\",\n"+
+							                    "  \"contract\": \"resource:org.stc.sawa.coin.Contract#" + document.getElementById('contract_17').value + "\"\n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/SetContractStatus");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+
+							}
+
+				// POST FORM 18
+
+				function setShipmentStatus(){
+							var requestBody =   "{\n"+
+							                    "  \"$class\": \"org.stc.sawa.coin.SetShipmentStatus\",\n"+
+							                    "  \"shipmentStatus\": \"" + document.getElementById('shipmentStatus_18').value + "\",\n"+
+							                    "  \"shipment\": \"resource:org.stc.sawa.coin.DealerShipment#" + document.getElementById('shipment_18').value + "\"\n"+
+							                    "}";
+							/*alert(requestBody);*/
+							var client=new XMLHttpRequest();
+							client.open("post","http://localhost:3000/api/SetShipmentStatus");
+
+							client.setRequestHeader('Accept','application/json');
+							client.setRequestHeader('Content-Type','application/json');
+
+							client.setRequestHeader('Authorization', 'Basic '+btoa('admin'+':'+'adminpw'));
+
+							client.onreadystatechange = function() {
+							    if(this.readyState = this.DONE) {
+							        var response = document.getElementById("response").innerHTML=this.status + this.response;
+							    }
+
+							};
+							client.send(requestBody);
+
+							}
+
+
+		</script>
+
+	</body>
+</html>
